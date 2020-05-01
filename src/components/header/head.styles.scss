@@ -1,0 +1,18 @@
+.header {	
+  height: 64px;	
+  width: 100%;
+  display: inline-flex;
+
+  .logo-container {	
+    height: 32px;	
+    width: 32px;
+    padding: 16px 0 16px 32px;	
+  }
+
+  .title {
+    font-size: 20px;
+    color: rgba(0,0,0,0.85);
+    line-height: 24px;
+    padding: 20px 8px;
+  }
+}
