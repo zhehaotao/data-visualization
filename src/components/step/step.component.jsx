@@ -1,4 +1,5 @@
 import React, { Component }  from 'react';
+import { withRouter } from 'react-router-dom';
 import { Steps } from 'antd';
 
 import './step.styles.scss';
@@ -7,17 +8,25 @@ const { Step } = Steps;
 
 class StepComponent extends Component {
   state = {
-    current: 0,
+    current: null,
   };
 
-  onChange = current => {
-    console.log('onChange:', current);
+  onChange = (current) => {
+    if (current === 0) {
+      this.props.history.push('/upload')
+    } else if (current === 1) {
+      this.props.history.push('/guide')
+    } else if (current === 2) {
+      this.props.history.push('/make')
+    } else if (current === 3) {
+      this.props.history.push('/export')
+    }
+
     this.setState({ current });
   };
 
   render() {
     const { current } = this.state;
-
     return (
       <div className='step-container'>
         <Steps
@@ -36,4 +45,4 @@ class StepComponent extends Component {
   }
 }
 
-export default StepComponent;
+export default withRouter(StepComponent);
