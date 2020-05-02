@@ -1,5 +1,12 @@
-.step-container {
+.step-container{
   height: 60px;
-  width: 700px;
-  margin: auto;
+  width: 100%;
+  border-top: 2px solid #D8D8D8;
+  border-bottom: 2px solid #D8D8D8;
+  
+  .step-module {
+    height: 100%;
+    width: 700px;
+    margin: auto;
+  }
 }

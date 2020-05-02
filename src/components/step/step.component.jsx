@@ -29,17 +29,19 @@ class StepComponent extends Component {
     const { current } = this.state;
     return (
       <div className='step-container'>
-        <Steps
-          type="navigation"
-          current={current}
-          onChange={this.onChange}
-          className="site-navigation-steps"
-        >
-          <Step title="上传数据" />
-          <Step title="选择图表" />
-          <Step title="配置图表" />
-          <Step title="导出图表" />
-        </Steps>
+        <div className='step-module'>
+          <Steps
+            type="navigation"
+            current={current}
+            onChange={this.onChange}
+            className="site-navigation-steps"
+          >
+            <Step title="上传数据" />
+            <Step title="选择图表" />
+            <Step title="配置图表" />
+            <Step title="导出图表" />
+          </Steps>
+        </div>
       </div>
     );
   }

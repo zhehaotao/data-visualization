@@ -1,0 +1,19 @@
+.subtitle-container {
+  height: 88px;
+  width: 50%;
+  margin: 0 160px;
+  display: flex;
+  align-items: center;
+
+  .subtitle{
+    height: 24px;
+    font-size: 24px;
+    line-height: 20px;
+  }
+  
+  .info-container {
+    width: 24px;
+    height: 24px;
+    padding: 0 16px;
+  }
+}
