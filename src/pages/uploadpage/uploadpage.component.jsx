@@ -1,6 +1,8 @@
 import React from 'react';
 import ParseExcel from '../../components/parseexcel/parseexcel.component';
+import Footer from '../../components/footer/footer.component';
 import { ReactComponent as InfoCircle } from '../../assets/info-circle.svg'
+
 import './uploadpage.styles.scss';
 
 const UploadPage = () => (
@@ -14,6 +16,7 @@ const UploadPage = () => (
       </div>
     </div>
     <ParseExcel />
+    <Footer />
   </div>
 )
 

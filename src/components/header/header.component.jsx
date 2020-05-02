@@ -1,5 +1,5 @@
 import React from 'react';
-import './head.styles.scss';
+import './header.styles.scss';
 
 import { ReactComponent as Data } from '../../assets/data.svg'
 
