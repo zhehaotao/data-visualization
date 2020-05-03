@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
 /*
   Simple HTML Table
   usage: <OutTable data={data} cols={cols} />
@@ -9,20 +10,19 @@ import React from 'react';
 class OutTable extends React.Component {
 	render() { 
     return (
-      <div className="table-responsive">
-        <table className="table table-striped">
-          <thead>
-            <tr>{this.props.cols.map((c) => <th key={c.key}>{c.name}</th>)}</tr>
-          </thead>
-          <tbody>
-            {this.props.data.map((r,i) => <tr key={i}>
-              {this.props.cols.map(c => <td key={c.key}>{ r[c.key] }</td>)}
-              </tr>)}
-          </tbody>
-        </table>
-      </div>
-    );
+      <table>
+        <tbody>
+          {this.props.data.map(
+            (row,id) => (<tr key={id}>{row.map(
+              (index,id) => (<td key={id}>{index}</td>))}</tr>))}
+        </tbody>
+      </table>
+    ); 
   };
 };
 
-export default OutTable;
+const mapStateToProps = state => ({
+  data: state.worksheet.data
+})
+
+export default connect(mapStateToProps,null)(OutTable);

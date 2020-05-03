@@ -1,9 +1,15 @@
 import React from 'react';
+import OutTable from '../../components/outtable/outtable.component';
 
-const GuidePage = () => (
-  <div>
-    GuidePage
-  </div>
-)
+class GuidePage extends React.Component {  
+  render() {
+    return (
+      <div>
+        <OutTable />
+      </div>
+    )
+  }  
+}
+
 
 export default GuidePage;
