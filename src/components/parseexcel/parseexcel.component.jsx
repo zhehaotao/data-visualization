@@ -8,13 +8,8 @@ import { Button } from 'antd';
 import './parseexcel.styles.scss';
 
 class ParseExcel extends React.Component {
-	constructor(props) {
-		super(props);
-    this.handleFile = this.handleFile.bind(this);
-    this.exportFile = this.exportFile.bind(this);
-  };
 
-	handleFile(file/*:File*/) {
+	handleFile = (file) => {
     /* Boilerplate to set up FileReader */
     const { parseExcel } = this.props
 		const reader = new FileReader();
@@ -34,7 +29,7 @@ class ParseExcel extends React.Component {
 		if(rABS) reader.readAsBinaryString(file); else reader.readAsArrayBuffer(file);
   };
   
-  exportFile() {
+  exportFile = () => {
 		/* convert state to workbook */
 		const ws = XLSX.utils.aoa_to_sheet(this.props.data);
 		const wb = XLSX.utils.book_new();
