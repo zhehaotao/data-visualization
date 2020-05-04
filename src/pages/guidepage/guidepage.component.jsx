@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import OutTable from '../../components/outtable/outtable.component';
 import Footer from '../../components/footer/footer.component';
+import BarPlot from '../../components/barplot/barplot.component';
 import { Card, Checkbox } from 'antd';
 
 import './guidepage.styles.scss';
@@ -56,9 +57,9 @@ class GuidePage extends React.Component {
               <div>
                 图表类型
               </div>
-              <Card 
-                style={{ width: '100%', height:160 }}
-              />
+              <Card style={{ width: '100%', height:160 }}>
+                <BarPlot />
+              </Card>
             </div>
           </div>
         </div>
