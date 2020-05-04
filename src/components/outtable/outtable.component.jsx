@@ -1,16 +1,11 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-/*
-  Simple HTML Table
-  usage: <OutTable data={data} cols={cols} />
-    data:Array<Array<any> >;
-    cols:Array<{name:string, key:number|string}>;
-*/
 class OutTable extends React.Component {
-	render() { 
+
+	render() {
     return (
-      <table>
+      <table border="1">
         <tbody>
           {this.props.data.map(
             (row,id) => (<tr key={id}>{row.map(

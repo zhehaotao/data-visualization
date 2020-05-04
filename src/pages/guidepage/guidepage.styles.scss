@@ -1,0 +1,38 @@
+.guide-container {
+  width: 80%;
+  height: 564px;
+  margin: auto;
+
+  .header-container {
+    margin-top: 32px;
+    margin-bottom: 24px;
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .content-container {
+    width: 100%;
+    margin: auto;
+    height: 436px;
+    display: flex;
+    justify-content: space-between;
+
+    .data-preview {
+      width: 70%;
+      height: 436px;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    .select-fields {
+      width: 25%;
+      height: 436px;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}
