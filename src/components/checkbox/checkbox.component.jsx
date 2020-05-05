@@ -25,7 +25,8 @@ class CheckBox extends React.Component {
       <div>
         <Checkbox.Group 
           options={this.options()} 
-          onChange={this.onChange} 
+          onChange={this.onChange}
+          style={{padding:'5%'}} 
         />
       </div>
     )

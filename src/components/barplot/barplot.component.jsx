@@ -2,7 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReactEcharts from 'echarts-for-react';
 class BarPlot extends React.Component{
-  getFields = () => {
+  getFieldsOne = () => {
+    for (let i = 0; i < this.props.data[0].length; i++) {
+      if (this.props.data[0][i] === this.props.fields[0].split(' ')[0]) {
+        return i;
+      }
+    }
+  }
+  getFieldsTwo = () => {
     for (let i = 0; i < this.props.data[0].length; i++) {
       if (this.props.data[0][i] === this.props.fields[1].split(' ')[0]) {
         return i;
@@ -12,10 +19,15 @@ class BarPlot extends React.Component{
   getOption = () => {
     let option = {
       title: {
-        text:'柱状图'
+        text:'柱状图',
+        left:'10%',
+        textStyle: {
+          fontSize:14,
+          fontWeight:'lighter'
+        }
       },
       grid: {
-        left:'30%',
+        left:'20%',
         top:'20%',
         bottom:'20%'
       },
@@ -27,18 +39,20 @@ class BarPlot extends React.Component{
           interval:0,
           rotate:this.props.rotate,
           fontSize:this.props.fontSize,
-          fontWeight:'lighter'
         },
-        data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[0]))  
+        data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.getFieldsOne()]))  
       },
       yAxis:{
-        type:'value'
+        type:'value',
+        axisLabel:{
+          fontSize:this.props.fontSize
+        }
       },
       series:[
         {
           name:`${this.props.fields[1].split(' ')[0]}`,
           type:'bar',   //这块要定义type类型，柱形图是bar,饼图是pie
-          data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.getFields()])) 
+          data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.getFieldsTwo()])) 
         }
       ]
     }

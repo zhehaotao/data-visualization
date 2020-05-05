@@ -11,7 +11,7 @@ class ShowType extends React.Component {
       )
     } else if (this.props.fields.length === 3) {
       return (
-        <ScatterPlot height={this.props.height}/>
+        <ScatterPlot height={this.props.height} fontSize={this.props.fontSize} rotate={this.props.rotate}/>
       )
     } else {
       return null;

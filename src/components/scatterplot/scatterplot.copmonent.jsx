@@ -13,10 +13,15 @@ class ScatterPlot extends React.Component{
   render () {
     const option = {
       title: {
-        text: '散点图'
+        text: '散点图',
+        left:'10%',
+        textStyle: {
+          fontSize:14,
+          fontWeight:'lighter'
+        }
       },
       grid: {
-        left:'30%',
+        left:'20%',
         top:'20%',
         bottom:'20%'
       },
@@ -25,7 +30,12 @@ class ScatterPlot extends React.Component{
           lineStyle: {
             type: 'dashed'
           }
-        }
+        },
+        axisLabel:{
+          interval:0,
+          rotate:this.props.rotate,
+          fontSize:this.props.fontSize,
+        },
       },
       yAxis: {
         splitLine: {
@@ -33,6 +43,9 @@ class ScatterPlot extends React.Component{
             type: 'dashed'
           }
         },
+        axisLabel:{
+          fontSize:this.props.fontSize
+        }
       },
       series: [{
         data: this.props.data.map((row,idx) => ([row[1],row[2],row[0]])),
