@@ -4,10 +4,24 @@ import ReactEcharts from 'echarts-for-react';
 class BarPlot extends React.Component{
   getOption =()=> {
     let option = {
+      title: {
+        text:'柱状图'
+      },
+      grid: {
+        left:'30%',
+        top:'20%',
+        bottom:'20%'
+      },
       tooltip:{
         trigger:'axis',
       },
       xAxis:{
+        axisLabel:{
+          interval:0,
+          rotate:`${this.props.rotate}`,
+          fontSize:`${this.props.fontSize}`,
+          fontWeight:'lighter'
+        },
         data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[0]))  
       },
       yAxis:{
@@ -28,7 +42,9 @@ class BarPlot extends React.Component{
   render(){
     return(
       <div>
-        <ReactEcharts option={this.getOption()} />
+        <ReactEcharts option={this.getOption()} 
+          style={{width:'100%',height:`${this.props.height}`}} 
+        />
       </div>
     )
   }

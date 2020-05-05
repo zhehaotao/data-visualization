@@ -57,8 +57,8 @@ class GuidePage extends React.Component {
               <div>
                 图表类型
               </div>
-              <Card style={{ width: '100%', height:160 }}>
-                <BarPlot />
+              <Card style={{ width: '100%', height:160 }} bodyStyle={{padding:0}}>
+                <BarPlot height='160px' fontSize='8' rotate='30'/>
               </Card>
             </div>
           </div>
