@@ -1,0 +1,44 @@
+.export-container {
+  width: 80%;
+  height: 564px;
+  margin: auto;
+
+  .header-container {
+    margin-top: 32px;
+    margin-bottom: 24px;
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .subheader-container {
+    margin-bottom: 12px;
+  }
+
+  .content-container {
+    height: 440px;
+    display: flex;
+    justify-content: space-between;
+
+    .plot-container {
+      width: 46%;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgb(242, 242, 242);
+
+      .button-container {
+        width: 100%;
+        height: 20%;
+      }
+
+      .show-container {
+        width: 100%;
+        height: 80%;
+      }
+    }
+    
+    .data-container {
+      width: 46%;
+      border: 1px solid rgb(242, 242, 242);
+    }
+  }
+}
