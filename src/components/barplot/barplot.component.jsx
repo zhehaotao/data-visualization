@@ -2,7 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReactEcharts from 'echarts-for-react';
 class BarPlot extends React.Component{
-  getOption =()=> {
+  getFields = () => {
+    for (let i = 0; i < this.props.data[0].length; i++) {
+      if (this.props.data[0][i] === this.props.fields[1].split(' ')[0]) {
+        return i;
+      }
+    }
+  }
+  getOption = () => {
     let option = {
       title: {
         text:'柱状图'
@@ -29,9 +36,9 @@ class BarPlot extends React.Component{
       },
       series:[
         {
-          name:'本年累计',
+          name:`${this.props.fields[1].split(' ')[0]}`,
           type:'bar',   //这块要定义type类型，柱形图是bar,饼图是pie
-          data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[1])) 
+          data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.getFields()])) 
         }
       ]
     }
@@ -50,7 +57,8 @@ class BarPlot extends React.Component{
   }
 }
 const mapStateToProps = state => ({
-  data: state.worksheet.data
+  data: state.worksheet.data,
+  fields: state.fields.fields
 })
 
 export default connect(mapStateToProps,null)(BarPlot);
