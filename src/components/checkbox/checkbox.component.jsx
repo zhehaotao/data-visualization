@@ -2,8 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Checkbox } from 'antd';
 
+import { selectedFields } from '../../redux/fields/fields.actions';
+
 class CheckBox extends React.Component {
-  onChange(checkedValues) {
+  onChange = (checkedValues) => {
+    const { selectedFields } = this.props
+    selectedFields(checkedValues);
     console.log('checked = ', checkedValues);
   }
   
@@ -16,20 +20,11 @@ class CheckBox extends React.Component {
     }
   }
 
-  defaultValue = () => {
-    try {
-      return ([`${this.props.data[0][0]} ${this.props.data[1][0]}`]);
-    } catch {
-      return;
-    }
-  }
-
   render() {
     return (
       <div>
         <Checkbox.Group 
           options={this.options()} 
-          defaultValue={this.defaultValue()} 
           onChange={this.onChange} 
         />
       </div>
@@ -37,10 +32,14 @@ class CheckBox extends React.Component {
   }
 }
 
+const mapDispatchToProps = dispatch => ({
+  selectedFields: fields => dispatch(selectedFields(fields))
+});
+
 const mapStateToProps = state => ({
   data: state.worksheet.data
 })
 
-export default connect(mapStateToProps,null)(CheckBox);
+export default connect(mapStateToProps,mapDispatchToProps)(CheckBox);
 
 
