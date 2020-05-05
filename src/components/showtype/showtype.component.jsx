@@ -1,5 +1,6 @@
 import React from 'react';
 import BarPlot from '../barplot/barplot.component';
+import ScatterPlot from '../scatterplot/scatterplot.copmonent';
 import { connect } from 'react-redux';
 
 class ShowType extends React.Component {
@@ -7,6 +8,10 @@ class ShowType extends React.Component {
     if (this.props.fields.length === 2) {
       return (
         <BarPlot height={this.props.height} fontSize={this.props.fontSize} rotate={this.props.rotate}/>
+      )
+    } else if (this.props.fields.length === 3) {
+      return (
+        <ScatterPlot height={this.props.height}/>
       )
     } else {
       return null;
