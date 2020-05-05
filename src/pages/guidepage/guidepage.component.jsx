@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import OutTable from '../../components/outtable/outtable.component';
 import Footer from '../../components/footer/footer.component';
-import ShowType from '../../components/showtype/showtype.compoment';
+import ShowType from '../../components/showtype/showtype.component';
 import CheckBox from '../../components/checkbox/checkbox.component';
 import { Card } from 'antd';
 

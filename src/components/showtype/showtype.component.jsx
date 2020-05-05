@@ -1,5 +1,5 @@
 import React from 'react';
-import BarPlot from '../../components/barplot/barplot.component';
+import BarPlot from '../barplot/barplot.component';
 import { connect } from 'react-redux';
 
 class ShowType extends React.Component {
