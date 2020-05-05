@@ -18,8 +18,8 @@ class BarPlot extends React.Component{
       xAxis:{
         axisLabel:{
           interval:0,
-          rotate:`${this.props.rotate}`,
-          fontSize:`${this.props.fontSize}`,
+          rotate:this.props.rotate,
+          fontSize:this.props.fontSize,
           fontWeight:'lighter'
         },
         data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[0]))  

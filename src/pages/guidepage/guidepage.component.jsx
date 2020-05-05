@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import OutTable from '../../components/outtable/outtable.component';
 import Footer from '../../components/footer/footer.component';
 import BarPlot from '../../components/barplot/barplot.component';
-import { Card, Checkbox } from 'antd';
+import CheckBox from '../../components/checkbox/checkbox.component';
+import { Card } from 'antd';
 
 import './guidepage.styles.scss';
 
@@ -13,16 +14,6 @@ class GuidePage extends React.Component {
       return this.props.data[0].length;
     } catch (err) {
       return 0;
-    }
-  }
-  selectFields = () => {
-    try {
-      return this.props.data[0].map(
-        (item, idx) => (<ul key={idx} style={{paddingInlineStart:5,marginBlockStart:0,marginBlockEnd:0}}>
-        <Checkbox /> {item} {this.props.data[1][idx]}
-        </ul>));
-    } catch(err) {
-      return; 
     }
   }
  
@@ -51,8 +42,9 @@ class GuidePage extends React.Component {
               </div>
               <Card title='字段 示例' 
                 style={{ width: '100%', height:190 }}
-                bodyStyle={{padding:0}}>
-                {<li>{this.selectFields()}</li>}
+                bodyStyle={{padding:0}}
+              >
+                <CheckBox />  
               </Card> 
               <div>
                 图表类型
