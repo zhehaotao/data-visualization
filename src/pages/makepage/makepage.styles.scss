@@ -1,0 +1,39 @@
+.content-container {
+  width: 100%;
+  height: 672px;
+  display: flex;
+
+  .show-container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .plot-container {
+      width: 100%;
+      height: 80%;
+      background-color: rgb(242, 242, 242);
+    }
+
+    .edit-container {
+      width: 100%;
+      height: 20%;
+    }
+  }
+
+  .config-container {
+    width: 20%;
+    height: 100%;
+    padding: 16px;
+    
+    .title {
+      font-size: 18px;
+      font-weight: bolder;
+      padding: 8px 0;
+    }
+
+    .subtitle {
+      padding: 8px 0;
+    }
+  }
+}
