@@ -1,5 +1,6 @@
 import React from 'react';
 import ShowType from '../../components/showtype/showtype.component';
+import EditTable from '../../components/edittable/edittable.component';
 import { Input } from 'antd';
 
 import './makepage.styles.scss';
@@ -17,7 +18,7 @@ class MakePage extends React.Component {
             <ShowType height='450px' fontSize='10' rotate='0'/>
           </div>
           <div className='edit-container'>
-            数据编辑区域
+            <EditTable />
           </div>
         </div>
         <div className='config-container'>
