@@ -2,21 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReactEcharts from 'echarts-for-react';
 class ScatterPlot extends React.Component{
-  getFieldsOne = () => {
-    for (let i = 0; i < this.props.data[0].length; i++) {
-      if (this.props.data[0][i] === this.props.fields[1].split(' ')[0]) {
-        return i;
-      }
-    }
-  }
-  getFieldsTwo = () => {
-    for (let i = 0; i < this.props.data[0].length; i++) {
-      if (this.props.data[0][i] === this.props.fields[2].split(' ')[0]) {
-        return i;
-      }
-    }
-  }
-
   render () {
     const option = {
       title: {
@@ -55,7 +40,7 @@ class ScatterPlot extends React.Component{
         }
       },
       series: [{
-        data: this.props.data.map((row,idx) => ([row[this.getFieldsOne()],row[this.getFieldsTwo()],row[0]])),
+        data: this.props.data.map((row,idx) => ([row[this.props.fields[1]],row[this.props.fields[2]],row[this.props.fields[0]]])),
         type: 'scatter',
         emphasis: {
           label: {

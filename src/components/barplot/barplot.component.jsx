@@ -2,20 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReactEcharts from 'echarts-for-react';
 class BarPlot extends React.Component{
-  getFieldsOne = () => {
-    for (let i = 0; i < this.props.data[0].length; i++) {
-      if (this.props.data[0][i] === this.props.fields[0].split(' ')[0]) {
-        return i;
-      }
-    }
-  }
-  getFieldsTwo = () => {
-    for (let i = 0; i < this.props.data[0].length; i++) {
-      if (this.props.data[0][i] === this.props.fields[1].split(' ')[0]) {
-        return i;
-      }
-    }
-  }
   getOption = () => {
     let option = {
       title: {
@@ -40,7 +26,7 @@ class BarPlot extends React.Component{
           rotate:this.props.rotate,
           fontSize:this.props.fontSize,
         },
-        data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.getFieldsOne()]))  
+        data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.props.fields[0]]))  
       },
       yAxis:{
         type:'value',
@@ -50,9 +36,9 @@ class BarPlot extends React.Component{
       },
       series:[
         {
-          name:`${this.props.fields[1].split(' ')[0]}`,
-          type:'bar',   //这块要定义type类型，柱形图是bar,饼图是pie
-          data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.getFieldsTwo()])) 
+          name:`${this.props.data[0][this.props.fields[1]]}`,
+          type:'bar', 
+          data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.props.fields[1]])) 
         }
       ]
     }
