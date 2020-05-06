@@ -1,4 +1,9 @@
-.export-container {
+.png-container {
   width: 80%;
-  margin: auto;
+  margin: 12px auto;
+
+  .plot {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
 }
