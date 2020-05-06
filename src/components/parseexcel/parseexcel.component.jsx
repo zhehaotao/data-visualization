@@ -33,9 +33,9 @@ class ParseExcel extends React.Component {
 		/* convert state to workbook */
 		const ws = XLSX.utils.aoa_to_sheet(this.props.data);
 		const wb = XLSX.utils.book_new();
-		XLSX.utils.book_append_sheet(wb, ws, "SheetJS");
+		XLSX.utils.book_append_sheet(wb, ws, "Sheet");
 		/* generate XLSX file and send to client */
-		XLSX.writeFile(wb, "sheetjs.xlsx")
+		XLSX.writeFile(wb, "样例数据.xlsx")
 	};
 
 	render() {

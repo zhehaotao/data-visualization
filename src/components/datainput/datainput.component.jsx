@@ -18,8 +18,12 @@ class DataInput extends React.Component {
   };
   
 	handleChange(e) {
-		const files = e.target.files;
-		if(files && files[0]) this.props.handleFile(files[0]);
+    const files = e.target.files;
+		if (files && files[0]) {
+      const fileName = files[0].name;
+      document.getElementById('show-name').innerHTML = fileName;
+      this.props.handleFile(files[0]);
+    }
   };
 
   showOperationSheet() {
@@ -45,11 +49,12 @@ class DataInput extends React.Component {
           accept={FileTYPE} 
           onChange={this.handleChange} 
         />
+        <div id='show-name'></div>
       </div>
     ); 
   };
 }
 
-const FileTYPE = ["xlsx"];
+const FileTYPE = [".xlsx"];
 
 export default DataInput;

@@ -20,7 +20,7 @@ const ExportPage = () => (
             <PlotExport />
           </div>
           <div className='show-container'>
-            <ShowType height='320px' fontSize='8' rotate='0'/>
+            <ShowType height='320px' fontSize='8' rotate='30'/>
           </div>
           
         </div>
