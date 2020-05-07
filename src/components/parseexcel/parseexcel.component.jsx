@@ -39,7 +39,6 @@ class ParseExcel extends React.Component {
 	};
 
 	render() {
-    console.log(this.props.data)
     return (
       <div>
         <div className="download-title">

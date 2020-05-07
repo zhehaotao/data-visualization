@@ -12,7 +12,6 @@ class CheckBox extends React.Component {
       idx.push(this.options().indexOf(checkedValues[i]));
     }
     selectedFields(idx);
-    console.log('checked = ', checkedValues);
   }
   
   options = () => {
