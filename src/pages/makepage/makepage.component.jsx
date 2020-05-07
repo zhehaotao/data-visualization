@@ -37,6 +37,9 @@ class MakePage extends React.Component {
             />
           </div>
           <div className='edit-container'>
+            <div className='edit-title'>
+              数据编辑区域
+            </div>
             <EditTable />
           </div>
         </div>
