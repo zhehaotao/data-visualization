@@ -18,7 +18,7 @@ class MakePage extends React.Component {
             <ShowType height='450px' fontSize='10' rotate='0'/>
           </div>
           <div className='edit-container'>
-            <EditTable />
+            <EditTable editable='true'/>
           </div>
         </div>
         <div className='config-container'>

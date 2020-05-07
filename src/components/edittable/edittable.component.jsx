@@ -5,10 +5,11 @@ class EditTable extends React.Component {
   componentDidMount() {
     document.getElementById('table').onblur = (e) => (console.log(e.target.innerText))
   }
+  
 
   render () {
     return (
-      <div id='table' contentEditable>
+      <div id='table' contentEditable={this.props.editable}>
         <table border="1">
           <tbody>
             {this.props.data.map(

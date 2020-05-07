@@ -2,6 +2,8 @@ import React from 'react';
 import Footer from '../../components/footer/footer.component';
 import ShowType from '../../components/showtype/showtype.component';
 import PlotExport from '../../components/plotexport/plotexport.component';
+import EditTable from '../../components/edittable/edittable.component';
+import CSVExport from '../../components/csvexport/csvexport.component';
 
 import './exportpage.styles.scss';
 
@@ -25,7 +27,12 @@ const ExportPage = () => (
           
         </div>
         <div className='data-container'>
-          Data
+          <div className='button-container'>
+            <CSVExport />
+          </div>
+          <div className='show-container'>
+            <EditTable editable='false' />
+          </div>
         </div>
       </div>
     </div>
