@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ShowType from '../../components/showtype/showtype.component';
 import EditTable from '../../components/edittable/edittable.component';
 import { Input } from 'antd';
@@ -15,7 +16,14 @@ class MakePage extends React.Component {
       <div className='content-container'>
         <div className='show-container'>
           <div className='plot-container'>
-            <ShowType height='450px' fontSize='10' rotate='0'/>
+            <ShowType 
+              height='450px' 
+              fontSize='10' 
+              rotate='0'
+              xSeries={this.props.editeddata.filter((row, idx) => idx > 0).map(row => (row[0]))}
+              ySeries={this.props.editeddata.filter((row, idx) => idx > 0).map(row => (row[1]))}
+              series={this.props.editeddata.map((row,idx) => ([row[1],row[2],row[0]]))}
+            />
           </div>
           <div className='edit-container'>
             <EditTable editable='true'/>
@@ -42,6 +50,8 @@ class MakePage extends React.Component {
   }
 }
   
+const mapStateToProps = state => ({
+  editeddata: state.editeddata.editeddata
+})
 
-
-export default MakePage;
+export default connect(mapStateToProps,null)(MakePage);

@@ -1,9 +1,22 @@
 import React from 'react';
-import { connect } from 'react-redux'; 
+import { connect } from 'react-redux';
+import { editData } from '../../redux/editeddata/editeddata.actions';
 
 class EditTable extends React.Component {
   componentDidMount() {
-    document.getElementById('table').onblur = (e) => (console.log(e.target.innerText))
+    const { editData } = this.props
+    document.getElementById('table').onblur = (e) => {
+      const nativeData = e.target.innerText.replace(/[\t\r\n]/g,",").split(",");
+      const newData = [];
+      for (let i = 0; i < this.props.data.length; i++) {
+        let temp = [];
+        for (let j = 0; j < this.props.fields.length; j++) {
+          temp.push(nativeData.shift());
+        }
+        newData.push(temp);
+      }
+      editData(newData)
+    }
   }
   
 
@@ -12,8 +25,8 @@ class EditTable extends React.Component {
       <div id='table' contentEditable={this.props.editable}>
         <table border="1">
           <tbody>
-            {this.props.data.map(
-              (row,id) => (<tr key={id}>{row.map(
+          {this.props.data.map(
+            (row,id) => (<tr key={id}>{row.map(
                 (index,id) => (this.props.fields.includes(id)? (<td key={id}>{index}</td>):null))}</tr>))}
           </tbody>
         </table>
@@ -22,11 +35,13 @@ class EditTable extends React.Component {
   }
 }
 
-
-
 const mapStateToProps = state => ({
-  data: state.worksheet.data,
-  fields: state.fields.fields
+  data:state.worksheet.data,
+  fields:state.fields.fields
 })
 
-export default connect(mapStateToProps,null)(EditTable);
+const mapDispatchToProps = dispatch => ({
+  editData: editeddata => dispatch(editData(editeddata))
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(EditTable);

@@ -40,7 +40,7 @@ class ScatterPlot extends React.Component{
         }
       },
       series: [{
-        data: this.props.data.map((row,idx) => ([row[this.props.fields[1]],row[this.props.fields[2]],row[this.props.fields[0]]])),
+        data: this.props.series,
         type: 'scatter',
         emphasis: {
           label: {

@@ -50,7 +50,14 @@ class GuidePage extends React.Component {
                 图表类型
               </div>
               <Card style={{ width: '100%', height:160 }} bodyStyle={{padding:0}}>
-                <ShowType height='160px' fontSize='8' rotate='30'/>
+                <ShowType 
+                  height='160px' 
+                  fontSize='8' 
+                  rotate='30'
+                  xSeries={this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.props.fields[0]]))}
+                  ySeries={this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.props.fields[1]]))}
+                  series={this.props.data.map((row,idx) => ([row[this.props.fields[1]],row[this.props.fields[2]],row[this.props.fields[0]]]))}
+                />
               </Card>
             </div>
           </div>
@@ -62,7 +69,8 @@ class GuidePage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  data: state.worksheet.data
+  data: state.worksheet.data,
+  fields:state.fields.fields
 })
 
 export default connect(mapStateToProps,null)(GuidePage);

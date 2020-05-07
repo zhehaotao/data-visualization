@@ -26,7 +26,7 @@ class BarPlot extends React.Component{
           rotate:this.props.rotate,
           fontSize:this.props.fontSize,
         },
-        data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.props.fields[0]]))  
+        data:this.props.xSeries  
       },
       yAxis:{
         type:'value',
@@ -38,7 +38,7 @@ class BarPlot extends React.Component{
         {
           name:`${this.props.data[0][this.props.fields[1]]}`,
           type:'bar', 
-          data:this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.props.fields[1]])) 
+          data:this.props.ySeries
         }
       ]
     }

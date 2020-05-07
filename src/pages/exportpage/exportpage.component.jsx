@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Footer from '../../components/footer/footer.component';
 import ShowType from '../../components/showtype/showtype.component';
 import PlotExport from '../../components/plotexport/plotexport.component';
@@ -7,7 +8,7 @@ import CSVExport from '../../components/csvexport/csvexport.component';
 
 import './exportpage.styles.scss';
 
-const ExportPage = () => (
+const ExportPage = ({editeddata}) => (
   <div>
     <div className='export-container'>
       <div className='header-container'>
@@ -22,7 +23,14 @@ const ExportPage = () => (
             <PlotExport />
           </div>
           <div className='show-container'>
-            <ShowType height='320px' fontSize='8' rotate='30'/>
+            <ShowType 
+              height='320px' 
+              fontSize='8' 
+              rotate='30'
+              xSeries={editeddata.filter((row, idx) => idx > 0).map(row => (row[0]))}
+              ySeries={editeddata.filter((row, idx) => idx > 0).map(row => (row[1]))}
+              series={editeddata.map((row,idx) => ([row[1],row[2],row[0]]))}
+            />
           </div>
           
         </div>
@@ -40,4 +48,8 @@ const ExportPage = () => (
   </div>
 )
 
-export default ExportPage;
+const mapStatetoProps = state => ({
+  editeddata: state.editeddata.editeddata
+})
+
+export default connect(mapStatetoProps,null)(ExportPage);
