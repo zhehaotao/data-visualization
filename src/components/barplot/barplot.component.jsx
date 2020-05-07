@@ -5,7 +5,7 @@ class BarPlot extends React.Component{
   getOption = () => {
     let option = {
       title: {
-        text:'柱状图',
+        text:this.props.barTitle,
         left:this.props.titleLeft,
         top:this.props.titleTop,
         textStyle: {

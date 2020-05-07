@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { editTitle } from '../../redux/plottitle/plottitle.actions';
 import ShowType from '../../components/showtype/showtype.component';
 import EditTable from '../../components/edittable/edittable.component';
 import { Input } from 'antd';
@@ -8,7 +9,8 @@ import './makepage.styles.scss';
 
 class MakePage extends React.Component {
   handleChange = e => {
-    console.log(e.target.value);   
+    const { editTitle } = this.props;
+    editTitle(e.target.value);   
   }
 
   handleEmptyName = () => {
@@ -25,6 +27,8 @@ class MakePage extends React.Component {
         <div className='show-container'>
           <div className='plot-container'>
             <ShowType
+              scatterTitle={this.props.plottitle}
+              barTitle={this.props.plottitle}              
               titleLeft='20%'
               titleTop='10%'    
               height='450px' 
@@ -56,7 +60,6 @@ class MakePage extends React.Component {
               style={{width:'85%',padding:'8px 0'}} 
               onChange={this.handleChange}
             />
-            <Input addonBefore='副标题' style={{width:'85%'}} />
           </div>
         </div>
       </div>
@@ -65,7 +68,12 @@ class MakePage extends React.Component {
 }
   
 const mapStateToProps = state => ({
-  editeddata: state.editeddata.editeddata
+  editeddata: state.editeddata.editeddata,
+  plottitle: state.plottitle.plottitle
 })
 
-export default connect(mapStateToProps,null)(MakePage);
+const mapDispatchToProps = dispatch => ({
+  editTitle: plottitle => dispatch(editTitle(plottitle))
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(MakePage);

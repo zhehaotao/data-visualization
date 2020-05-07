@@ -5,7 +5,7 @@ class ScatterPlot extends React.Component{
   render () {
     const option = {
       title: {
-        text: '散点图',
+        text: this.props.scatterTitle,
         left: this.props.titleLeft,
         top:this.props.titleTop,
         textStyle: {

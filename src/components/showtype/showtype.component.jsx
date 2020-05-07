@@ -8,6 +8,7 @@ class ShowType extends React.Component {
     if (this.props.fields.length === 2) {
       return (
         <BarPlot
+          barTitle={this.props.barTitle}
           titleLeft={this.props.titleLeft}
           titleTop={this.props.titleTop} 
           height={this.props.height} 
@@ -21,6 +22,7 @@ class ShowType extends React.Component {
     } else if (this.props.fields.length === 3) {
       return (
         <ScatterPlot
+          scatterTitle={this.props.scatterTitle}
           titleLeft={this.props.titleLeft}
           titleTop={this.props.titleTop}   
           height={this.props.height} 

@@ -32,6 +32,8 @@ class ExportPage extends React.Component {
             </div>
             <div className='show-container'>
               <ShowType
+                barTitle={this.props.plottitle}
+                scatterTitle={this.props.plottitle}
                 titleLeft='10%'
                 titleTop='5%'    
                 height='320px' 
@@ -68,7 +70,8 @@ class ExportPage extends React.Component {
 }
 
 const mapStatetoProps = state => ({
-  editeddata: state.editeddata.editeddata
+  editeddata: state.editeddata.editeddata,
+  plottitle: state.plottitle.plottitle
 })
 
 export default connect(mapStatetoProps,null)(ExportPage);

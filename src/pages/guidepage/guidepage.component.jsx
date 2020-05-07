@@ -59,6 +59,8 @@ class GuidePage extends React.Component {
               </div>
               <Card style={{ width: '100%', height:160 }} bodyStyle={{padding:0}}>
                 <ShowType
+                  barTitle='柱状图'
+                  scatterTitle='散点图'
                   titleLeft='8%'
                   titleTop='0'
                   height='160px' 
