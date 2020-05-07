@@ -6,7 +6,8 @@ class BarPlot extends React.Component{
     let option = {
       title: {
         text:'柱状图',
-        left:'10%',
+        left:this.props.titleLeft,
+        top:this.props.titleTop,
         textStyle: {
           fontSize:14,
           fontWeight:'lighter'
@@ -36,7 +37,7 @@ class BarPlot extends React.Component{
       },
       series:[
         {
-          name:`${this.props.data[0][this.props.fields[1]]}`,
+          name:this.props.seriesName,
           type:'bar', 
           data:this.props.ySeries
         }

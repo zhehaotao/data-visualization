@@ -11,18 +11,29 @@ class MakePage extends React.Component {
     console.log(e.target.value);   
   }
 
+  handleEmptyName = () => {
+    try {
+      return this.props.editeddata[0][1];
+    } catch (err) {
+      return null;
+    }
+  }
+
   render () {
     return (
       <div className='content-container'>
         <div className='show-container'>
           <div className='plot-container'>
-            <ShowType 
+            <ShowType
+              titleLeft='20%'
+              titleTop='10%'    
               height='450px' 
               fontSize='10' 
               rotate='0'
               xSeries={this.props.editeddata.filter((row, idx) => idx > 0).map(row => (row[0]))}
               ySeries={this.props.editeddata.filter((row, idx) => idx > 0).map(row => (row[1]))}
               series={this.props.editeddata.map((row,idx) => ([row[1],row[2],row[0]]))}
+              seriesName={this.handleEmptyName()}
             />
           </div>
           <div className='edit-container'>

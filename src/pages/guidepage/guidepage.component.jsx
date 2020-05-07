@@ -16,6 +16,14 @@ class GuidePage extends React.Component {
       return 0;
     }
   }
+
+  handleEmptyName = () => {
+    try {
+      return this.props.data[0][this.props.fields[1]];
+    } catch (err) {
+      return null;
+    }
+  }
  
   render() {
     return (
@@ -50,13 +58,16 @@ class GuidePage extends React.Component {
                 图表类型
               </div>
               <Card style={{ width: '100%', height:160 }} bodyStyle={{padding:0}}>
-                <ShowType 
+                <ShowType
+                  titleLeft='8%'
+                  titleTop='0'
                   height='160px' 
                   fontSize='8' 
                   rotate='30'
                   xSeries={this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.props.fields[0]]))}
                   ySeries={this.props.data.filter((row, idx) => idx > 0).map(row => (row[this.props.fields[1]]))}
                   series={this.props.data.map((row,idx) => ([row[this.props.fields[1]],row[this.props.fields[2]],row[this.props.fields[0]]]))}
+                  seriesName={this.handleEmptyName()}
                 />
               </Card>
             </div>

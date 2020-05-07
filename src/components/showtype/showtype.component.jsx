@@ -7,17 +7,22 @@ class ShowType extends React.Component {
   render () {
     if (this.props.fields.length === 2) {
       return (
-        <BarPlot 
+        <BarPlot
+          titleLeft={this.props.titleLeft}
+          titleTop={this.props.titleTop} 
           height={this.props.height} 
           fontSize={this.props.fontSize} 
           rotate={this.props.rotate}
           xSeries={this.props.xSeries}
           ySeries={this.props.ySeries}
+          seriesName={this.props.seriesName}
         />
       )
     } else if (this.props.fields.length === 3) {
       return (
-        <ScatterPlot 
+        <ScatterPlot
+          titleLeft={this.props.titleLeft}
+          titleTop={this.props.titleTop}   
           height={this.props.height} 
           fontSize={this.props.fontSize} 
           rotate={this.props.rotate}

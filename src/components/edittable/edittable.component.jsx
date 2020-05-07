@@ -6,21 +6,9 @@ import { Button } from 'antd';
 import './edittable.styles.scss';
 
 class EditTable extends React.Component {
-  // componentDidMount() {
-  //   const { editData } = this.props
-  //   document.getElementById('table').onblur = (e) => {
-  //     const nativeData = e.target.innerText.replace(/[\t\r\n]/g,",").split(",");
-  //     const newData = [];
-  //     for (let i = 0; i < this.props.data.length; i++) {
-  //       let temp = [];
-  //       for (let j = 0; j < this.props.fields.length; j++) {
-  //         temp.push(nativeData.shift());
-  //       }
-  //       newData.push(temp);
-  //     }
-  //     editData(newData)
-  //   }
-  // }
+  componentDidMount() {
+    this.handleClick()
+  }
   
   handleClick = () => {
     const { editData } = this.props
@@ -49,7 +37,7 @@ class EditTable extends React.Component {
           </table>
         </div>
         <div>
-          <Button type='primary' size='large' onClick={this.handleClick}>完成编辑，生成图表</Button>
+          <Button type='primary' size='large' onClick={this.handleClick}>完成编辑，更新图表</Button>
         </div>
       </div>
     )
