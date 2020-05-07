@@ -8,13 +8,16 @@ import './csvexport.styles.scss';
 class CSVExport extends React.Component {
   downloadCSV = () => {
     try {
-      const csv = [];
-      for (let i = 0; i < this.props.data.length; i++) {
+      let csv = '';
+      for (let i = 0; i < this.props.editeddata.length; i++) {
         for (let j = 0; j < this.props.fields.length; j++) {
-          csv.push(this.props.data[i][this.props.fields[j]])
+          if (j === this.props.fields.length-1) {
+            csv += `${this.props.editeddata[i][this.props.fields[j]]}\n`
+          } else {
+            csv += `${this.props.editeddata[i][this.props.fields[j]]},`
+          }
         }
       }
-      csv.join(',');
       let blob = new Blob(['\uFEFF' + csv], {
         type: 'text/plaincharset=utf-8'
       })
@@ -39,8 +42,8 @@ class CSVExport extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  data: state.worksheet.data,
-  fields:state.fields.fields
+  fields:state.fields.fields,
+  editeddata:state.editeddata.editeddata
 })
 
 export default connect(mapStateToProps,null)(CSVExport);

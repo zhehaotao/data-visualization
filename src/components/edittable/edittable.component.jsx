@@ -22,7 +22,7 @@ class EditTable extends React.Component {
 
   render () {
     return (
-      <div id='table' contentEditable={this.props.editable}>
+      <div id='table' contentEditable='true'>
         <table border="1">
           <tbody>
           {this.props.data.map(

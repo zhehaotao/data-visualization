@@ -26,7 +26,7 @@ class MakePage extends React.Component {
             />
           </div>
           <div className='edit-container'>
-            <EditTable editable='true'/>
+            <EditTable />
           </div>
         </div>
         <div className='config-container'>

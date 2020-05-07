@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Footer from '../../components/footer/footer.component';
 import ShowType from '../../components/showtype/showtype.component';
 import PlotExport from '../../components/plotexport/plotexport.component';
-import EditTable from '../../components/edittable/edittable.component';
 import CSVExport from '../../components/csvexport/csvexport.component';
 
 import './exportpage.styles.scss';
@@ -39,7 +38,13 @@ const ExportPage = ({editeddata}) => (
             <CSVExport />
           </div>
           <div className='show-container'>
-            <EditTable editable='false' />
+            <table border="1">
+              <tbody>
+                {editeddata.map(
+                  (row,id) => (<tr key={id}>{row.map(
+                    (index,id) => (<td key={id}>{index}</td>))}</tr>))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
