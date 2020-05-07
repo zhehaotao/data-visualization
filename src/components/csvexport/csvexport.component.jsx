@@ -12,9 +12,9 @@ class CSVExport extends React.Component {
       for (let i = 0; i < this.props.editeddata.length; i++) {
         for (let j = 0; j < this.props.fields.length; j++) {
           if (j === this.props.fields.length-1) {
-            csv += `${this.props.editeddata[i][this.props.fields[j]]}\n`
+            csv += `${this.props.editeddata[i][j]}\n`
           } else {
-            csv += `${this.props.editeddata[i][this.props.fields[j]]},`
+            csv += `${this.props.editeddata[i][j]},`
           }
         }
       }
