@@ -41,6 +41,7 @@
       border: 1px solid rgb(242, 242, 242);
       display: flex;
       flex-direction: column;
+      overflow: auto;
 
       .button-container {
         width: 100%;

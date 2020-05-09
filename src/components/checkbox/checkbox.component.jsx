@@ -4,6 +4,8 @@ import { Checkbox } from 'antd';
 
 import { selectedFields } from '../../redux/fields/fields.actions';
 
+import './checkbox.styles.scss';
+
 class CheckBox extends React.Component {
   onChange = (checkedValues) => {
     const { selectedFields } = this.props;
@@ -25,7 +27,7 @@ class CheckBox extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='checkbox-container'>
         <Checkbox.Group 
           options={this.options()} 
           onChange={this.onChange}

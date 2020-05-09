@@ -39,7 +39,7 @@ class GuidePage extends React.Component {
               </div>
               <Card 
                 title={`${this.props.data.length}行，${this.handleEmptyFile()}列`} 
-                style={{ width: '100%', height:400 }}
+                style={{ width: '100%', height:400 ,overflow:'auto'}}
               >
                 <OutTable />
               </Card>
