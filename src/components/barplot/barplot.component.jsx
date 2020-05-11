@@ -4,6 +4,7 @@ import ReactEcharts from 'echarts-for-react';
 class BarPlot extends React.Component{
   getOption = () => {
     let option = {
+      color: this.props.color,
       title: {
         text:this.props.barTitle,
         left:this.props.titleLeft,
@@ -58,7 +59,8 @@ class BarPlot extends React.Component{
 }
 const mapStateToProps = state => ({
   data: state.worksheet.data,
-  fields: state.fields.fields
+  fields: state.fields.fields,
+  color: state.color.color
 })
 
 export default connect(mapStateToProps,null)(BarPlot);

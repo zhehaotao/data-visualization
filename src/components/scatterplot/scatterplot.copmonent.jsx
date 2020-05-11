@@ -4,6 +4,7 @@ import ReactEcharts from 'echarts-for-react';
 class ScatterPlot extends React.Component{
   render () {
     const option = {
+      color:this.props.color,
       title: {
         text: this.props.scatterTitle,
         left: this.props.titleLeft,
@@ -66,7 +67,8 @@ class ScatterPlot extends React.Component{
 }
 const mapStateToProps = state => ({
   data: state.worksheet.data,
-  fields: state.fields.fields
+  fields: state.fields.fields,
+  color: state.color.color
 })
 
 export default connect(mapStateToProps,null)(ScatterPlot);

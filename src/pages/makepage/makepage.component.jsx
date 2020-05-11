@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { editTitle } from '../../redux/plottitle/plottitle.actions';
+import { selectColor } from '../../redux/color/color.actions';
 import ShowType from '../../components/showtype/showtype.component';
 import EditTable from '../../components/edittable/edittable.component';
 import { Input } from 'antd';
@@ -8,9 +9,14 @@ import { Input } from 'antd';
 import './makepage.styles.scss';
 
 class MakePage extends React.Component {
-  handleChange = e => {
+  handleTitle = e => {
     const { editTitle } = this.props;
     editTitle(e.target.value);   
+  }
+
+  handleColor = e => {
+    const { selectColor } = this.props;
+    selectColor(e.target.value);
   }
 
   handleEmptyName = () => {
@@ -57,8 +63,21 @@ class MakePage extends React.Component {
           <div>
             <Input 
               addonBefore='标题' 
-              style={{width:'85%',padding:'8px 0'}} 
-              onChange={this.handleChange}
+              style={{width:'85%'}} 
+              onChange={this.handleTitle}
+            />
+          </div>
+          <br />
+          <div className='subtitle'>
+            图形属性
+          </div>
+          <div>
+            <Input
+              addonBefore='颜色'  
+              type='color'
+              style={{width:'85%'}} 
+              onChange={this.handleColor}
+              value={this.props.color}
             />
           </div>
         </div>
@@ -69,11 +88,13 @@ class MakePage extends React.Component {
   
 const mapStateToProps = state => ({
   editeddata: state.editeddata.editeddata,
-  plottitle: state.plottitle.plottitle
+  plottitle: state.plottitle.plottitle,
+  color: state.color.color
 })
 
 const mapDispatchToProps = dispatch => ({
-  editTitle: plottitle => dispatch(editTitle(plottitle))
+  editTitle: plottitle => dispatch(editTitle(plottitle)),
+  selectColor: color => dispatch(selectColor(color))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(MakePage);
